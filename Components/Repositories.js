@@ -10,6 +10,7 @@ import {
 
 import Badge from './badge';
 import Separator from './Helpers/Separator';
+import Web_View from './Helpers/WebView'
 
 const styles = StyleSheet.create({
   container: {
@@ -36,7 +37,11 @@ const styles = StyleSheet.create({
 
 class Repositories extends Component {
   openPage(url) {
-    console.log(`the url is ${url}`);
+    this.props.navigator.push( {
+      component: Web_View,
+      title: 'Web View',
+      passProps: {url}
+    })
   }
   render() {
     const repos = this.props.repos;
